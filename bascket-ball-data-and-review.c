@@ -81,6 +81,8 @@ int main()
     // initialise the high/low indexes and the game performance
     int highScoreIndex = 0;
     int lowScoreIndex = 0;
+    int highScore = 0;
+    int lowScore = 150;
     float gamePerformance;
     indexGame = 0;
 
@@ -106,10 +108,11 @@ int main()
       if (playerChoice == 'H')
       {
         // for loop to find the maximum score
-        for (indexGame = 1; indexGame < numberOfGames; indexGame++)
+        for (indexGame = 0; indexGame < numberOfGames; indexGame++)
         {
-          if (gamePoints[indexGame] > gamePoints[indexGame - 1])
+          if (gamePoints[indexGame] > highScore)
           {
+            highScore = gamePoints[indexGame];
             highScoreIndex = indexGame; /* setting the game index to the highest game score */
           }
         }
@@ -133,10 +136,11 @@ int main()
       {
 
         // for loop for finding the lowest game score:
-        for (indexGame = 1; indexGame < numberOfGames; indexGame++)
+        for (indexGame = 0; indexGame < numberOfGames; indexGame++)
         {
-          if (gamePoints[indexGame] < gamePoints[indexGame - 1])
+          if (gamePoints[indexGame] < lowScore)
           {
+            lowScore = gamePoints[indexGame];
             lowScoreIndex = indexGame;
           }
         }
@@ -168,7 +172,7 @@ int main()
         gamePerformance = ((0.7 * (gamePoints[indexGame - 1])) + (0.2 * (gameRebound[indexGame - 1])) + (0.1 * (gameAssists[indexGame - 1])));
 
         // after the user choose a valid game, the game data will print out:
-        printf("your #%d review as follows:\n", indexGame);
+        printf("your #%d game review as follows:\n", indexGame);
         printf("Number of points -------> %d", gamePoints[indexGame - 1]);
         printf("\nNumber of rebounds -------> %d", gameRebound[indexGame - 1]);
         printf("\nnumber of assists -------> %d", gameAssists[indexGame - 1]);
