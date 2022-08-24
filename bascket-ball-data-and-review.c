@@ -167,7 +167,7 @@ int main()
           {
             printf("Invalid game number");
           }
-        } while ((indexGame > 10 || indexGame < 1));
+        } while ((indexGame > numberOfGames || indexGame < 1));
 
         gamePerformance = ((0.7 * (gamePoints[indexGame - 1])) + (0.2 * (gameRebound[indexGame - 1])) + (0.1 * (gameAssists[indexGame - 1])));
 
